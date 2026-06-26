@@ -79,3 +79,6 @@ extra:
     - icon: fontawesome/solid/cube
       link: https://grabcad.com/ruben.jimenez-15/models
       name: GrabCAD
+    - icon: fontawesome/solid/book
+      link: https://notes.rubenayla.xyz/
+      name: Notes

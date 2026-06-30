@@ -66,3 +66,13 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 - **[kart-docs](https://github.com/um-driverless/kart-docs)** — mechanical, electrical, hydraulics, BOM
 - **[driverless (legacy)](https://github.com/UM-Driverless/driverless)** — pre-ROS Python stack, ~50 Hz reference
 - **[How Our Autonomous Kart Software Works](https://youtu.be/wZSFr2eYE4M?si=JckY54OkSBQb4r1M)** — walkthrough video of the legacy stack
+
+---
+
+The full week-by-week build — decisions, failures, and fixes — is documented in the Build Journey.
+
+<div style="text-align: center; margin: 1.5em 0 2.5em;" markdown>
+
+[:material-book-open-variant: **Continue to the Build Journey** :material-arrow-right:](../build-journey/index.md){ .md-button .md-button--primary style="font-size: 1.2rem; padding: 0.9em 2em;" }
+
+</div>

@@ -107,4 +107,14 @@ If you have a similar workflow, try this and share your experience — I'm lovin
 
 ---
 
+<!--
+PLACEHOLDER — upcoming post: "Making it fast" (cone detection → 81 FPS on the Jetson Orin)
+Stage 2 of the perception-speed story. Stage 1 (Deteccion_conos, multithreading + polymorphic
+rewrite, ~8→50 FPS) lives on the Formula Student page. This post covers the ROS 2 + AI-era
+optimizations: FP16 + TensorRT (.pt → .engine, layer fusion), sky-crop, jetson_clocks, ZED VGA
+672x376, nano→small model → 81 FPS while running the dashboard + server. Source draft:
+~/ruben-files/videos/kart/linkedin/posts/making_it_fast/ (Rubén publishes, then migrate here).
+Add as a dated ## section with #anchor and update the "Jump to:" line when it ships.
+-->
+
 *That's the latest post. New ones land roughly every Wednesday — [follow on LinkedIn](https://www.linkedin.com/in/rubenayla/) to catch them as they ship, or check back here.*

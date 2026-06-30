@@ -11,7 +11,7 @@
 !!! success "Status — May 2026"
     ROS 2 migration complete. Manual mode fully operational. **First
     autonomous run completed 5 full laps on a cone-defined track**
-    (April 2025) before a printed PLA sun gear in the steering reducer
+    (April 2026) before a printed PLA sun gear in the steering reducer
     snapped on the 6th lap — a known PLA-creep failure with a brass
     upgrade already designed. Autonomous mode actively integrated.
 

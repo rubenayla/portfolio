@@ -39,7 +39,7 @@ Then visit http://localhost:8005/. Kill stale processes with `lsof -ti:8005 | xa
 - Keep descriptions technical and concise
 - Images go in `docs/images/{project-name}/`
 - Downloadable files go in `docs/files/`
-- Videos in `docs/videos/`. Policy: hero/loop videos self-hosted as MP4; demo videos (watched start-to-end) on YouTube. Hero MP4 = `kart-hero.mp4`.
+- Videos in `docs/videos/`, self-hosted as MP4 and embedded with raw `<video>` tags. Hero/loop MP4 = `kart-hero.mp4`. (YouTube embedding is allowed but not required — there is no "demos must go on YouTube" rule.)
 
 ## Gotchas
 - **Raw HTML `<video src>` / `<iframe src>` relative paths are NOT rewritten by mkdocs** like markdown links are. A page at `/projects/kart/` (directory URL) referencing `../videos/X.mp4` resolves to `/projects/videos/X.mp4` (404). Use `../../videos/X.mp4` to reach `/videos/X.mp4`. Markdown image/link syntax does get rewritten — only raw HTML tags hit this.

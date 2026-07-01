@@ -15,7 +15,7 @@
     snapped on the 6th lap — a known PLA-creep failure with a brass
     upgrade already designed. Autonomous mode actively integrated.
 
-[:material-book-open-variant: **Read the Build Journey**](../build-journey/index.md){ .md-button .md-button--primary }
+[:material-book-open-variant: **Read the Build Journey**](#build-journey){ .md-button .md-button--primary }
 [:material-file-document-multiple: Full technical documentation (kart-docs)](https://um-driverless.github.io/kart-docs/){ .md-button }
 
 ## What it is
@@ -47,19 +47,6 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 
 *Autonomous mode running outdoors — no one in the seat. April 2026.*
 
-## Gallery
-
-<div class="grid cards" markdown>
-
-- ![Full kart](../images/kart/full-kart.jpg){ loading=lazy }
-- ![Chassis arrival](../images/kart/chassis-arrival.jpg){ loading=lazy }
-- ![ZED 2 camera mount](../images/kart/zed2-mount.jpg){ loading=lazy }
-- ![Kart Medulla custom PCB](../images/kart/kart-medulla-pcb.png){ loading=lazy }
-- ![Steering planetary gear motor](../images/kart/steering-planetary.jpg){ loading=lazy }
-- ![Battery pack assembled](../images/kart/battery-pack.jpg){ loading=lazy }
-
-</div>
-
 ## Links
 
 - **[kart-brain](https://github.com/UM-Driverless/kart-brain)** — Jetson-side perception, control, ROS 2 nodes
@@ -69,10 +56,4 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 
 ---
 
-The full week-by-week build — decisions, failures, and fixes — is documented in the Build Journey.
-
-<div style="text-align: center; margin: 1.5em 0 2.5em;" markdown>
-
-[:material-book-open-variant: **Continue to the Build Journey** :material-arrow-right:](../build-journey/index.md){ .md-button .md-button--primary style="font-size: 1.2rem; padding: 0.9em 2em;" }
-
-</div>
+--8<-- "build-journey/index.md"

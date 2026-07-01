@@ -28,3 +28,9 @@
 **Prevention:**
 - Before renaming a Pages repo with a custom domain, set that domain to **DNS only (grey cloud)** in Cloudflare first, so the post-rename cert re-issue can complete. Re-check `gh api repos/<o>/<r>/pages -q .https_certificate.state` after.
 - Recovery (also the steady-state recommendation): keep Pages custom-domain records grey/DNS-only. To fix a stuck cert, grey-cloud → force re-verify by removing + re-adding the cname via the Pages API → poll until `approved` → set `https_enforced=true`. Full detail in `~/repos/notes/.agents/history.md` (2026-06-07 DNS-only gotcha).
+
+## 2026-07-01 — Created history.md inside `.agents/` instead of at the repo root
+**What:** Logging the kart-page Build Journey decisions, I created `.agents/history.md` (with the `.agents` category-header comment). The user corrected it: history.md lives at the **repo root**, not under `.agents/`. Moved it with `git mv .agents/history.md history.md`.
+**Root cause:** Global CLAUDE.md lists `history.md` alongside `error-log.md`/`scratchpad.md` when describing the consult-selectively category, which I over-read as "history.md is an `.agents/` file too." It isn't — the routing rule ("what happened/learned, accumulating → `history.md`") means the repo-root `history.md`. `error-log.md`, `notes.md`, `tasks.md` live in `.agents/`; `history.md` and `AGENTS.md` live at the root.
+**Prevention:**
+- **`history.md` goes at the repo root, not in `.agents/`.** When in doubt about a knowledge-file's location, check where its siblings already live in *this* repo before creating a new one (there was no existing history.md here, which is exactly when the placement rule matters most).

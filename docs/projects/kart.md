@@ -47,6 +47,19 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 
 *Autonomous mode running outdoors — no one in the seat. April 2026.*
 
+??? note "Build photos"
+
+    <div class="grid cards" markdown>
+
+    - ![Full kart](../images/kart/full-kart.jpg){ loading=lazy }
+    - ![Chassis arrival](../images/kart/chassis-arrival.jpg){ loading=lazy }
+    - ![ZED 2 camera mount](../images/kart/zed2-mount.jpg){ loading=lazy }
+    - ![Kart Medulla custom PCB](../images/kart/kart-medulla-pcb.png){ loading=lazy }
+    - ![Steering planetary gear motor](../images/kart/steering-planetary.jpg){ loading=lazy }
+    - ![Battery pack assembled](../images/kart/battery-pack.jpg){ loading=lazy }
+
+    </div>
+
 ## Links
 
 - **[kart-brain](https://github.com/UM-Driverless/kart-brain)** — Jetson-side perception, control, ROS 2 nodes

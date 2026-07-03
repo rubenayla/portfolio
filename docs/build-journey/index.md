@@ -127,7 +127,7 @@ We did the welding with a kWeld. It's funny how it pulses so much current that t
 
 <div style="max-width: 280px; margin: 1em auto;">
   <video controls playsinline preload="metadata" style="width: 100%; border-radius: 8px;">
-    <source src="../videos/battery-spot-weld.mp4" type="video/mp4">
+    <source src="/videos/battery-spot-weld.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -203,7 +203,7 @@ Finally, the kart works.
 
 <div style="max-width: 315px; margin: 1em auto;">
   <video controls playsinline preload="metadata" style="width: 100%; border-radius: 8px;">
-    <source src="../videos/first-manual-drive.mp4" type="video/mp4">
+    <source src="/videos/first-manual-drive.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -265,7 +265,7 @@ A cycloidal drive could also work, but it's more complex and needs specific comp
 For us, the fastest way to get a prototype working is to 3D-print the planetary reducer to match a motor we already have. That motor comes from an old massage chair.
 
 <video controls playsinline muted preload="metadata" style="width: 100%; max-width: 720px; display: block; margin: 1em auto; border-radius: 8px;">
-  <source src="../videos/planetary-cad.mp4" type="video/mp4">
+  <source src="/videos/planetary-cad.mp4" type="video/mp4">
 </video>
 
 Our first prints stripped out under the steering loads. A tougher filament would probably hold, but a spool of it costs more than just buying the gear. So we stopped printing and adjusted the design to use a standard steel gear from Norelem.

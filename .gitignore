@@ -18,3 +18,6 @@ site/
 
 # Scratch / tooling
 .gemini-clipboard/
+
+# Playwright MCP browser-verification snapshots
+.playwright-mcp/

@@ -17,8 +17,10 @@ Decisions made this session:
 
 Why "lazy loading" wasn't the real lever: all 19 journey images already carry `loading=lazy`, so inlining the journey doesn't hurt load time — the browser still only fetches images on scroll. The decision was UX (one page vs two), not performance.
 
-Deferred (not done, awaiting user decision):
-- Whether to drop the "Build Journey" nav sub-entry now that the content is inline on the overview.
-- Whether to delete the six now-orphaned gallery images under `docs/images/kart/`.
+Deferred (resolved 2026-07-02, see below).
 
 Commit `45c8794`. GitHub Pages deploy succeeded.
+
+### 2026-07-02 — Resolved the deferred items; re-added the photos as a collapsed section
+- **Kept the standalone "Build Journey" nav entry.** User: the inline copy on the kart overview exists only to hook the viewer; the journey is *conceptually a sub-part* and belongs as its own standalone page. So the nav stays as-is — inline hook on the overview, canonical standalone page in the nav.
+- **Re-added the six build photos as a collapsed `??? note "Build photos"` section** (Material `pymdownx.details`), placed where the old `## Gallery` was (between the autonomous-run video and `## Links`). Collapsed by default, no nav entry and no button/link pointing to it — visible to anyone curious, invisible weight otherwise. This resolves the earlier "orphaned images" question: the six `docs/images/kart/` files are in use again, not deleted.

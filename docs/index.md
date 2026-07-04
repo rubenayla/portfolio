@@ -10,8 +10,7 @@ Currently finishing my degree and looking for robotics roles in Switzerland.
 
 [:fontawesome-brands-linkedin: LinkedIn](https://www.linkedin.com/in/rubenayla/){ .md-button }
 [:fontawesome-brands-github: GitHub](https://github.com/rubenayla){ .md-button }
-[:material-file-pdf-box: Resume (EN)](files/CV_Ruben_Jimenez_EN.pdf){ .md-button }
-[:material-file-pdf-box: CV (ES)](files/CV_Ruben_Jimenez_ES.pdf){ .md-button }
+[:material-file-pdf-box: CV (EN)](files/CV_Ruben_Jimenez_EN.pdf){ .md-button }
 
 ---
 

@@ -42,7 +42,6 @@ First-generation Python perception, planning, and control stack. ~50 Hz end-to-e
 [:material-email: Email](mailto:ruben.jimenezmejias@gmail.com){ .md-button }
 [:fontawesome-solid-cube: GrabCAD](https://grabcad.com/ruben.jimenez-15/models){ .md-button }
 
-## Resume
+## CV
 
 [:material-file-pdf-box: CV (English)](files/CV_Ruben_Jimenez_EN.pdf){ .md-button }
-[:material-file-pdf-box: CV (Español)](files/CV_Ruben_Jimenez_ES.pdf){ .md-button }

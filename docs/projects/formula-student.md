@@ -4,6 +4,30 @@
 
 The driverless subsystems I personally designed and built for **Ü Motorsport** — the electronics, steering, braking, sensing, and perception software. The hardware shown here is the team's **UM05** car (my piece of it, not the whole vehicle); the perception stack is the team's open-source cone detector. This is where my autonomy work started, before I went on to lead the [Driverless Kart](kart.md) testbed.
 
+## Driverless perception software
+
+The team's open-source cone-detection stack ([`Deteccion_conos`](https://github.com/UM-Driverless/Deteccion_conos)) — the perception pipeline that locates track cones from the camera feed. I reworked its software architecture and took the loop from roughly **8 to ~50 FPS**, all before the move to ROS 2 and the later AI-era model optimizations.
+
+<div style="margin: 1.5em 0;">
+  <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+    <iframe
+      src="https://www.youtube.com/embed/wZSFr2eYE4M"
+      title="How our autonomous kart software works — walkthrough of the legacy Python stack"
+      frameborder="0"
+      loading="lazy"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  </div>
+</div>
+
+*Walkthrough video — how the perception pipeline works, end to end.*
+
+- **Multithreading** — split the serial capture → detect → control loop so the camera read, detection, and control stages run concurrently instead of blocking each other. Profiling per-section execution time showed the bottleneck shift from the camera (~8 Hz) to detection (~50 Hz).
+- **Polymorphic rewrite** — gave every camera source (recorded image, video, webcam, ZED stereo, simulator) one common interface behind a base class, with a factory that selects the right one from a YAML config. Run modes became *configuration* rather than branching — removing the if/else sprawl and making the code reusable and testable.
+
+*What came next: switching to ROS 2, plus FP16 / TensorRT model optimization and sky-cropping, pushed cone detection to 81 FPS on the kart's Jetson Orin — a story for the [Driverless Kart](kart.md) build journey.*
+
 ![The Ü Motorsport team with the car at competition](../images/formula-student/um05-team.jpg){ loading=lazy }
 
 ## Role
@@ -61,30 +85,6 @@ The odometry input for the autonomy stack — built from the sensor up.
 
 !!! note "Open issue I left documented"
     At standstill, engine vibration occasionally produced phantom speed readings. A low-pass filter on the sensor signal was the likely fix.
-
-## Driverless perception software
-
-The team's open-source cone-detection stack ([`Deteccion_conos`](https://github.com/UM-Driverless/Deteccion_conos)) — the perception pipeline that locates track cones from the camera feed. I reworked its software architecture and took the loop from roughly **8 to ~50 FPS**, all before the move to ROS 2 and the later AI-era model optimizations.
-
-- **Multithreading** — split the serial capture → detect → control loop so the camera read, detection, and control stages run concurrently instead of blocking each other. Profiling per-section execution time showed the bottleneck shift from the camera (~8 Hz) to detection (~50 Hz).
-- **Polymorphic rewrite** — gave every camera source (recorded image, video, webcam, ZED stereo, simulator) one common interface behind a base class, with a factory that selects the right one from a YAML config. Run modes became *configuration* rather than branching — removing the if/else sprawl and making the code reusable and testable.
-
-<div style="margin: 1.5em 0;">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-    <iframe
-      src="https://www.youtube.com/embed/wZSFr2eYE4M"
-      title="How our autonomous kart software works — walkthrough of the legacy Python stack"
-      frameborder="0"
-      loading="lazy"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-  </div>
-</div>
-
-*Walkthrough video — how the perception pipeline works, end to end.*
-
-*What came next: switching to ROS 2, plus FP16 / TensorRT model optimization and sky-cropping, pushed cone detection to 81 FPS on the kart's Jetson Orin — a story for the [Driverless Kart](kart.md) build journey.*
 
 ## Debugging: the power-on brownout
 

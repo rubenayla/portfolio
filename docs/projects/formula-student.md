@@ -69,7 +69,20 @@ The team's open-source cone-detection stack ([`Deteccion_conos`](https://github.
 - **Multithreading** — split the serial capture → detect → control loop so the camera read, detection, and control stages run concurrently instead of blocking each other. Profiling per-section execution time showed the bottleneck shift from the camera (~8 Hz) to detection (~50 Hz).
 - **Polymorphic rewrite** — gave every camera source (recorded image, video, webcam, ZED stereo, simulator) one common interface behind a base class, with a factory that selects the right one from a YAML config. Run modes became *configuration* rather than branching — removing the if/else sprawl and making the code reusable and testable.
 
-[Walkthrough video →](https://youtu.be/wZSFr2eYE4M)
+<div style="margin: 1.5em 0;">
+  <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+    <iframe
+      src="https://www.youtube.com/embed/wZSFr2eYE4M"
+      title="How our autonomous kart software works — walkthrough of the legacy Python stack"
+      frameborder="0"
+      loading="lazy"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  </div>
+</div>
+
+*Walkthrough video — how the perception pipeline works, end to end.*
 
 *What came next: switching to ROS 2, plus FP16 / TensorRT model optimization and sky-cropping, pushed cone detection to 81 FPS on the kart's Jetson Orin — a story for the [Driverless Kart](kart.md) build journey.*
 

@@ -4,7 +4,7 @@ Posts documenting the build of a competition kart turned autonomous vehicle. Rou
 
 [Follow on LinkedIn :fontawesome-brands-linkedin:](https://www.linkedin.com/in/rubenayla/){ .md-button }
 
-**Jump to:** [Intro](#intro) · [Motor](#motor) · [AI Inventory](#inventory-ai) · [Battery](#battery) · [Why 48V](#why-48v) · [Roll hoop](#main-hoop) · [First drive](#first-drive) · [Steering](#steering-actuator) · [Planetary reducer](#planetary-reducer)
+**Jump to:** [Intro](#intro) · [Motor](#motor) · [AI Inventory](#inventory-ai) · [Battery](#battery) · [Why 48V](#why-48v) · [Roll hoop](#main-hoop) · [First drive](#first-drive) · [Steering](#steering-actuator) · [Planetary reducer](#planetary-reducer) · [Reducer build](#planetary-build) · [Steering control](#steering-control) · [Dashboard](#dashboard)
 
 ---
 
@@ -273,6 +273,44 @@ Our first prints stripped out under the steering loads. A tougher filament would
 Next week we'll talk about the exact design.
 
 Steering/planetary docs: [um-driverless.github.io/kart-docs/assembly/steering](https://um-driverless.github.io/kart-docs/assembly/steering/).
+
+---
+
+## The reducer, built { #planetary-build }
+
+*2026-07-01*
+
+Printing the planetary reducer was the easy part. Mounting it so it actually drove the steering column — meshing cleanly against a motor pulled from an old massage chair — was the fiddly one. Here it is spinning the steering on the kart.
+
+<video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
+  <source src="/videos/steering-planetary-built.mp4" type="video/mp4">
+</video>
+
+---
+
+## Making the steering hold an angle { #steering-control }
+
+*2026-07-03*
+
+Plug a battery straight into the steering motor and it just swings hard to one side. We need it to stop at the exact angle the software asks for. Three cheap pieces close that loop: a ~€3 AS5600 Hall-effect sensor reads the steering angle off a nearby magnet, a Cytron MD25HV H-bridge switches the motor power fast enough to set it without wasting energy as heat, and a PID loop on the ESP32 compares the angle we have to the one we want and drives the difference to zero.
+
+<video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
+  <source src="/videos/actuator-gears-polished.mp4" type="video/mp4">
+</video>
+
+---
+
+## A dashboard on your phone { #dashboard }
+
+*2026-07-06*
+
+When the kart misbehaves, you can't tell why unless you can see what it's thinking — the steering angle, the cones it detects, where it thinks it is, and where it wants to go. We were about to build a panel of buttons and LEDs, then realized we already carry the best possible dashboard: a phone. Great touchscreen, its own battery, always in your pocket. A ROS 2 node on the Orin serves a web dashboard, and any phone on the network just opens it.
+
+<video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
+  <source src="/videos/phone-dashboard.mp4" type="video/mp4">
+</video>
+
+Dashboard docs: [um-driverless.github.io/kart-docs/software](https://um-driverless.github.io/kart-docs/software/).
 
 ---
 

@@ -280,11 +280,23 @@ Steering/planetary docs: [um-driverless.github.io/kart-docs/assembly/steering](h
 
 *2026-07-01*
 
-Printing the planetary reducer was the easy part. Mounting it so it actually drove the steering column — meshing cleanly against a motor pulled from an old massage chair — was the fiddly one. Here it is spinning the steering on the kart.
+Last post we chose a 3d printed planetary reducer to fit the motor we already had. We redesigned it a few times before it held up on the kart.
+
+We used a laser-cut steel bracket tig-welded to the chassis. The motor face has threaded holes, so it bolts straight to the reducer casing with the steel bracket sandwiched between.
+
+The first holder deformed under the load so much that the big gears started skipping teeth. We redesigned it so the lid holds a bearing and makes the distance between the gears constant. Also did smaller fixes like adding a cover so the planets don't get stuck on inner bolt heads, and playing with tolerances. The video doesn't include these fixes yet.
 
 <video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
   <source src="/videos/steering-planetary-built.mp4" type="video/mp4">
 </video>
+
+All this work let us find the real bottleneck: the D-flat coupling of the sun gear with the motor shaft strips out. PLA, ABS, and Nylon all break.
+
+We redesigned it to use a standard steel gear from Norelem, and did some tests by limiting the PWM to about 40% in the meantime.
+
+Now we have a reducer that turns the steering column when we power the motor. Next we have to control the angle precisely. We're basically building a servo.
+
+Steering/planetary docs: [um-driverless.github.io/kart-docs/assembly/steering](https://um-driverless.github.io/kart-docs/assembly/steering/).
 
 ---
 
@@ -292,11 +304,33 @@ Printing the planetary reducer was the easy part. Mounting it so it actually dro
 
 *2026-07-03*
 
-Plug a battery straight into the steering motor and it just swings hard to one side. We need it to stop at the exact angle the software asks for. Three cheap pieces close that loop: a ~€3 AS5600 Hall-effect sensor reads the steering angle off a nearby magnet, a Cytron MD25HV H-bridge switches the motor power fast enough to set it without wasting energy as heat, and a PID loop on the ESP32 compares the angle we have to the one we want and drives the difference to zero.
+Plug a battery straight into the steering motor and the steering just swings hard to one side. We need it to stop at the exact angle the software asks for instead.
+
+For that, we obviously need a way to know where the steering is pointing, and a way to control the power we apply. Then some brains will decide how much power we need to reach the angle we want.
+
+We sense the angle with an amazingly cheap and effective chip: a Hall-effect angle sensor (an AS5600, about €3). If you put a magnet nearby, it tells you the angle of the magnetic field. The magnet can move around in space and the sensor still picks up the angle, as long as it's close by.
+
+To control the power of the motor you need to control the current. This paragraph goes into unnecessary detail about it, just so we understand from first principles why it's done the way it is.
+
+If you wanted to apply just a little bit of power (a small current), you'd need to somehow stop the electrons of the battery from flowing to the motor. The obvious way is with a resistor in series, which limits the current and makes the motor's voltage drop smaller.
+
+The problem is that it wastes energy. The only way to prevent it is to have infinite resistance, which means an open circuit and no power flows anywhere, or 0 resistance, which means a perfect wire with no voltage drop. Anything in between wastes energy, which means there's a voltage drop causing heat in the electronics.
+
+So, if we want to control the power without wasting energy, we switch really fast between those two efficient states. One applies power and the other doesn't.
+
+That's done with an H-bridge. It's just a PCB with MOSFETs that switch the power on and off really fast. It can control the polarity of both wires of the motor, so it needs 4 switches wired in an H. That's where the name comes from. The one we use is a Cytron MD25HV. Thanks to Cytron for sponsoring it! There aren't many H-bridges that handle these higher voltages, and this one worked perfectly for us.
+
+Then we just need to figure out how much power to apply, by comparing the angle we have and the angle we want. That goes to a PID algorithm running on an ESP32, which outputs the PWM signal we talked about. That signal goes to the H-bridge, which powers the motor.
+
+Now we need to tune the PID values so it delivers the right amount of power without oscillating.
+
+You can see in the video how it responds to our commands. Oh, and the dashboard we built to control everything from our phones. We'll go into more depth on that in another post.
 
 <video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
   <source src="/videos/actuator-gears-polished.mp4" type="video/mp4">
 </video>
+
+Steering system docs: [um-driverless.github.io/kart-docs/assembly/steering](https://um-driverless.github.io/kart-docs/assembly/steering/).
 
 ---
 
@@ -304,11 +338,19 @@ Plug a battery straight into the steering motor and it just swings hard to one s
 
 *2026-07-06*
 
-When the kart misbehaves, you can't tell why unless you can see what it's thinking — the steering angle, the cones it detects, where it thinks it is, and where it wants to go. We were about to build a panel of buttons and LEDs, then realized we already carry the best possible dashboard: a phone. Great touchscreen, its own battery, always in your pocket. A ROS 2 node on the Orin serves a web dashboard, and any phone on the network just opens it.
+When the kart misbehaves, you can't tell why unless you can see what it's thinking.
+
+That's why we built a dashboard. It shows the kart's internal state live: the steering angle, the cones it detects, where it thinks it is, and where it wants to go. Without that you're debugging blind. You know it went the wrong way, but not which signal lied.
 
 <video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
   <source src="/videos/phone-dashboard.mp4" type="video/mp4">
 </video>
+
+We were thinking about adding a panel with buttons and LEDs. Then we thought, why not a touchscreen like in the Formula car, so we can control the mission, the shutdown system state, and see values from the sensors? A dashboard where we can see and control everything.
+
+After some thought we realized we already had the best possible dashboard: our phones. Great touchscreen, built-in battery, and you already have it always with you. A ROS 2 node on the Orin serves the web dashboard, and any phone can open it. Since AI makes this effortless, we tried it. And we loved it.
+
+The only mess is the Wi-Fi. The Orin runs JetPack, NVIDIA's modified Ubuntu, and it can't hold two Wi-Fi connections at once, so we can't have internet and the local dashboard network at the same time. We opted to deploy online using Cloudflare and a custom domain, so we have internet and the dashboard is no longer local. This is practical for testing but requires a phone with a mobile hotspot. We'll soon try USB-tethering the phone's internet to the Orin, freeing the Wi-Fi for the local dashboard. That way, even without internet the dashboard still works.
 
 Dashboard docs: [um-driverless.github.io/kart-docs/software](https://um-driverless.github.io/kart-docs/software/).
 

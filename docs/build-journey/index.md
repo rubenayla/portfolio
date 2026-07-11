@@ -4,13 +4,13 @@ Posts documenting the build of a competition kart turned autonomous vehicle. Rou
 
 [Follow on LinkedIn :fontawesome-brands-linkedin:](https://www.linkedin.com/in/rubenayla/){ .md-button }
 
-**Jump to:** [Intro](#intro) · [Motor](#motor) · [AI Inventory](#inventory-ai) · [Battery](#battery) · [Why 48V](#why-48v) · [Roll hoop](#main-hoop) · [First drive](#first-drive) · [Steering](#steering-actuator) · [Planetary reducer](#planetary-reducer) · [Reducer build](#planetary-build) · [Steering control](#steering-control) · [Dashboard](#dashboard)
+**Jump to:** [Intro](#intro) · [Motor](#motor) · [AI Inventory](#inventory-ai) · [Battery](#battery) · [Why 48V](#why-48v) · [Roll hoop](#main-hoop) · [First drive](#first-drive) · [Steering](#steering-actuator) · [Planetary reducer](#planetary-reducer) · [Reducer build](#planetary-build) · [Steering control](#steering-control) · [Dashboard](#dashboard) · [Autonomous drive](#autonomous)
 
 ---
 
-## Turning a kart into a driverless racing car { #intro }
+## [Turning a kart into a driverless racing car](https://www.linkedin.com/posts/rubenayla_formulastudent-driverless-umotorsport-activity-7452662533024395266-dB_m) { #intro }
 
-*2026-04-22 · [Original on LinkedIn →](https://www.linkedin.com/posts/rubenayla_formulastudent-driverless-umotorsport-activity-7452662533024395266-dB_m)*
+*2026-04-22*
 
 We're turning a kart into a driverless racing car.
 
@@ -32,9 +32,9 @@ Everything's going into the [kart docs](https://um-driverless.github.io/kart-doc
 
 ---
 
-## Mounting the motor, and why the first bracket failed { #motor }
+## [Mounting the motor, and why the first bracket failed](https://www.linkedin.com/feed/update/urn:li:activity:7455251314227429377/) { #motor }
 
-*2026-04-29 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7455251314227429377/)*
+*2026-04-29*
 
 For our kart, the first step is to attach the motor. We kept it simple: a 48V 2000W BLDC kit, which included the controller, throttle sensor, and wiring. Our engineering goes into the battery, the safety system, and the autonomy stack.
 
@@ -62,9 +62,9 @@ Months later, the question "wait, which pitch did we use?" kept coming up. That'
 
 ---
 
-## Using an AI Inventory to design PCBs { #inventory-ai }
+## [Using an AI Inventory to design PCBs](https://www.linkedin.com/feed/update/urn:li:activity:7456983051160481793/) { #inventory-ai }
 
-*2026-05-04 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7456983051160481793/)*
+*2026-05-04*
 
 We're using an AI Inventory to design PCBs.
 
@@ -107,9 +107,9 @@ If you have a similar workflow, try this and share your experience — I'm lovin
 
 ---
 
-## Building the battery pack from bare cells { #battery }
+## [Building the battery pack from bare cells](https://www.linkedin.com/feed/update/urn:li:activity:7460644047704100864/) { #battery }
 
-*2026-05-14 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7460644047704100864/)*
+*2026-05-14*
 
 We made the battery pack ourselves. Why?
 
@@ -149,9 +149,9 @@ It's interesting to think about how we'd build this at scale. The process would 
 
 ---
 
-## Why 48V, and not more { #why-48v }
+## [Why 48V, and not more](https://www.linkedin.com/feed/update/urn:li:activity:7462034279871643649/) { #why-48v }
 
-*2026-05-18 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7462034279871643649/)*
+*2026-05-18*
 
 A common question is: why 48V for the kart battery?
 
@@ -169,9 +169,9 @@ So our pack lands at 13 cells in series, near the highest that can be touched wi
 
 ---
 
-## A roll hoop, a bearing spacer, and a throttle sensor { #main-hoop }
+## [A roll hoop, a bearing spacer, and a throttle sensor](https://www.linkedin.com/feed/update/urn:li:activity:7462759132736114688/) { #main-hoop }
 
-*2026-05-21 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7462759132736114688/)*
+*2026-05-21*
 
 Karts don't come with roll hoops. They sit low, weigh little, and drivers don't wear seatbelts. In a flip, an unbelted driver gets thrown clear: the kart slides on, the driver lands and tumbles. A hoop bolted overhead turns that into a cage you can't be ejected from, and a kart you can be pinned under. So competition karts ride open.
 
@@ -195,9 +195,9 @@ Next: the first manual drive. Everything's going into the [kart docs](https://um
 
 ---
 
-## The first manual drive { #first-drive }
+## [The first manual drive](https://www.linkedin.com/feed/update/urn:li:activity:7465296164049977346/) { #first-drive }
 
-*2026-05-27 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7465296164049977346/)*
+*2026-05-27*
 
 Finally, the kart works.
 
@@ -215,9 +215,9 @@ In parallel, we're working on the code. There's a [legacy Python codebase](https
 
 ---
 
-## Making the kart steer itself: the actuator search { #steering-actuator }
+## [Making the kart steer itself: the actuator search](https://www.linkedin.com/feed/update/urn:li:activity:7470401788328914944/) { #steering-actuator }
 
-*2026-06-10 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7470401788328914944/)*
+*2026-06-10*
 
 Here we are, with a completely manual kart, and we have to make it turn itself.
 
@@ -250,9 +250,9 @@ Steering system docs: [um-driverless.github.io/kart-docs/assembly/steering](http
 
 ---
 
-## Why a planetary reducer { #planetary-reducer }
+## [Why a planetary reducer](https://www.linkedin.com/feed/update/urn:li:activity:7477360277299208192/) { #planetary-reducer }
 
-*2026-06-29 · [Original on LinkedIn →](https://www.linkedin.com/feed/update/urn:li:activity:7477360277299208192/)*
+*2026-06-29*
 
 Last time we talked about the decision to make our own actuator. Why a planetary reducer, of all things?
 
@@ -276,7 +276,7 @@ Steering/planetary docs: [um-driverless.github.io/kart-docs/assembly/steering](h
 
 ---
 
-## The reducer, built { #planetary-build }
+## [The reducer, built](https://www.linkedin.com/feed/update/urn:li:activity:7478085104381145088/) { #planetary-build }
 
 *2026-07-01*
 
@@ -300,7 +300,7 @@ Steering/planetary docs: [um-driverless.github.io/kart-docs/assembly/steering](h
 
 ---
 
-## Making the steering hold an angle { #steering-control }
+## [Making the steering hold an angle](https://www.linkedin.com/feed/update/urn:li:activity:7478809848940310528/) { #steering-control }
 
 *2026-07-03*
 
@@ -334,7 +334,7 @@ Steering system docs: [um-driverless.github.io/kart-docs/assembly/steering](http
 
 ---
 
-## A dashboard on your phone { #dashboard }
+## [A dashboard on your phone](https://www.linkedin.com/feed/update/urn:li:activity:7479791570385420288/) { #dashboard }
 
 *2026-07-06*
 
@@ -353,6 +353,30 @@ After some thought we realized we already had the best possible dashboard: our p
 The only mess is the Wi-Fi. The Orin runs JetPack, NVIDIA's modified Ubuntu, and it can't hold two Wi-Fi connections at once, so we can't have internet and the local dashboard network at the same time. We opted to deploy online using Cloudflare and a custom domain, so we have internet and the dashboard is no longer local. This is practical for testing but requires a phone with a mobile hotspot. We'll soon try USB-tethering the phone's internet to the Orin, freeing the Wi-Fi for the local dashboard. That way, even without internet the dashboard still works.
 
 Dashboard docs: [um-driverless.github.io/kart-docs/software](https://um-driverless.github.io/kart-docs/software/).
+
+---
+
+## [The first autonomous drive](https://www.linkedin.com/feed/update/urn:li:activity:7481241167268077568/) { #autonomous }
+
+*2026-07-10*
+
+This is the first time the kart really drives itself. It's jerky and slow, but it works.
+
+<video controls playsinline preload="metadata" style="width: 100%; max-width: 340px; display: block; margin: 1em auto; border-radius: 8px;">
+  <source src="/videos/kart-first-autonomous-drive.mp4" type="video/mp4">
+</video>
+
+To get here, we first tuned the steering PID controller until it ran stably — values of 1.50, 0.0, 0.02, at 500 Hz on the ESP32.
+
+For the control logic we used the most stupidly simple steering algorithm you can imagine: take the first two cones, average their positions, and point the wheels at that midpoint.
+
+In parallel we're developing and testing Pure Pursuit, a Stanley controller, Model Predictive Control (MPC), and even an end-to-end neural network in a simulator. We'll compare all of them on the track soon — they didn't work in reality yet because they need more real-world tuning.
+
+To find the cones from the cameras we use YOLOv11s. We took the foundation from [some old code](https://youtu.be/wZSFr2eYE4M) and significantly improved the training for our specific case.
+
+The next step is enabling the ZED camera's built-in object tracking, specifically its Kalman filter. Right now the cones sometimes disappear or jump back and forth frame by frame. The Kalman filter will track them consistently, keeping their IDs and predicting positions even through dropped frames.
+
+Software docs: [um-driverless.github.io/kart-docs/software](https://um-driverless.github.io/kart-docs/software/).
 
 ---
 

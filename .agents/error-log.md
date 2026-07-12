@@ -27,7 +27,7 @@
 **Root cause:** Treated a repo rename as cosmetic. For a GitHub Pages repo with a **proxied** custom domain, a rename triggers a cert re-issue that the proxy blocks — same fragility that makes proxied Pages break on every Let's Encrypt renewal (~60 days).
 **Prevention:**
 - Before renaming a Pages repo with a custom domain, set that domain to **DNS only (grey cloud)** in Cloudflare first, so the post-rename cert re-issue can complete. Re-check `gh api repos/<o>/<r>/pages -q .https_certificate.state` after.
-- Recovery (also the steady-state recommendation): keep Pages custom-domain records grey/DNS-only. To fix a stuck cert, grey-cloud → force re-verify by removing + re-adding the cname via the Pages API → poll until `approved` → set `https_enforced=true`. Full detail in `~/repos/notes/.agents/history.md` (2026-06-07 DNS-only gotcha).
+- Recovery (also the steady-state recommendation): keep Pages custom-domain records grey/DNS-only. To fix a stuck cert, grey-cloud → force re-verify by removing + re-adding the cname via the Pages API → poll until `approved` → set `https_enforced=true`. Full detail in `~/repos/notes/history.md` (2026-06-07 DNS-only gotcha).
 
 ## 2026-07-01 — Created history.md inside `.agents/` instead of at the repo root
 **What:** Logging the kart-page Build Journey decisions, I created `.agents/history.md` (with the `.agents` category-header comment). The user corrected it: history.md lives at the **repo root**, not under `.agents/`. Moved it with `git mv .agents/history.md history.md`.

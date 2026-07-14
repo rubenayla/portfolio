@@ -44,7 +44,7 @@ Marketplace platform built for AI agents as first-class users: a public MCP serv
 
 ---
 
-### [Cyberwheel](https://rubenayla.github.io/cyberwheel/) — open-source EUC
+### [Cyberwheel](projects/cyberwheel.md) — open-source EUC
 
 Electric unicycle that "never cuts power," addressing critical safety concerns in commercial products. Sealed electronics, crash-resistant, fully open hardware + firmware.
 

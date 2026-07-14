@@ -14,7 +14,7 @@ Lead engineer on a Formula Student team converting a competition Tony Kart into 
 
 First-generation Python perception, planning, and control stack. ~50 Hz end-to-end loop on the same hardware. Foundation for the ROS 2 rewrite that followed.
 
-**Other**: corruption-investigation research at URJC (2024 – 2025); aeromodelling team at COSMOS (2018 – 2020); independent product builder ([Partle](projects/partle.md), [Cyberwheel](https://rubenayla.github.io/cyberwheel/), [investment analysis framework](projects/invest.md)).
+**Other**: corruption-investigation research at URJC (2024 – 2025); aeromodelling team at COSMOS (2018 – 2020); independent product builder ([Partle](projects/partle.md), [Cyberwheel](projects/cyberwheel.md), [investment analysis framework](projects/invest.md)).
 
 ## Education
 

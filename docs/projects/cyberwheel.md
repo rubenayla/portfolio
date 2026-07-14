@@ -1,65 +1,38 @@
-# Cyberwheel
+# ![Cyberwheel](../images/cyberwheel/logo.svg){ width="380" }
 
-📚 **[Documentation](https://rubenayla.github.io/cyberwheel/)** | 🎥 **[Pitch Video](https://youtu.be/mN5FoosNMC0)**
+**Open-source electric unicycle · 2022 – present · Hardware + firmware, fully open.**
 
-## Overview
+An electric unicycle (EUC) built to be trusted and repaired: waterproof, crash-resistant, and designed so that losing power is treated as a fatal design error, not the rider's fault. Hardware and firmware are open so the community can repair and modify them, free of the proprietary restrictions that lock down commercial wheels.
 
-An open-source electric unicycle (EUC) project aimed at creating reliable, repairable, and modifiable personal transportation. Cyberwheel challenges current EUC design limitations by prioritizing safety, durability, and community-driven development.
+[:material-book-open-variant: **Documentation**](https://rubenayla.github.io/cyberwheel/){ .md-button .md-button--primary }
+[:material-youtube: Pitch Video](https://youtu.be/mN5FoosNMC0){ .md-button }
+[:fontawesome-brands-github: Source](https://github.com/rubenayla/cyberwheel){ .md-button }
 
-The project's core mission is to design an EUC that "never cuts power, even if you try" - addressing critical safety concerns in existing commercial products through innovative engineering and open-source principles.
+<div class="grid cards" markdown>
 
-## Key Features
+- ![CAD design of the wheel — sealed electronics box over a 16-inch wheel](../images/cyberwheel/render.png){ loading=lazy }
+- ![Build progression — CAD, the laser-cut flat pattern, and the running prototype on the bench](../images/cyberwheel/prototype-build.png){ loading=lazy }
 
-- **Sealed Electronics** - Waterproof battery and electronics compartment for all-weather riding
-- **Crash-Resistant Design** - Impact-resistant chassis engineered for real-world durability
-- **Multifunctional Handle** - Serves as kickstand, locking mechanism, and potential seat
-- **Thermal Management** - Chassis designed as a heatsink to prevent overheating
-- **Built-in Charger** - Integrated charging system for convenience
-- **Safety First** - Fireproof battery cover and fail-safe power management
-- **Open Source** - Hardware and firmware designed to be repairable and modifiable by the community
+</div>
 
-## Technical Details
+## Why it exists
 
-### Target Specifications
+Commercial EUCs are powerful but fragile: proprietary hardware and firmware block repairs, rain alone can kill them, they overheat with no sensors to catch it, and battery fires are a real risk. Worst of all, a power cutout at speed throws the rider — and it's usually blamed on the rider rather than the design.
 
-- **Speed**: ~50 km/h maximum
-- **Rider Capacity**: 80 kg
-- **Wheel Size**: 16" or 18"
-- **Battery**: 20s 84V configuration
-- **Motor**: C38 or C30 high-torque motors
+Cyberwheel's core rule: **a well-designed EUC should never cut power, even if you try.** That means margin on both sides — undervoltage and overvoltage — using ideas like resistor or motor-coil short-circuit braking instead of dumping charge into an already-full battery.
 
-### Design Philosophy
+## Design highlights
 
-The Cyberwheel addresses critical limitations in current EUC designs:
-- Lack of crash resistance in commercial models
-- Proprietary hardware and software preventing repairs
-- Poor water resistance leading to failures
-- Overheating risks during intensive use
-- Battery safety concerns
+- **Sealed electronics and battery compartment** — waterproof enough to survive rain, puddles, and worse.
+- **Chassis as heatsink** — aluminium structure doubles as thermal mass so the electronics don't overheat under load.
+- **Multifunction handle** — kickstand, lock-to-a-pole arm, and seat in one folding part.
+- **Built-in charger** and a **fireproof battery cover.**
+- **Repairable by design** — modular assembly, open hardware and firmware.
 
-### Engineering Approach
+## Target parameters
 
-- Aluminum chassis serving dual purpose as structural element and heatsink
-- Sealed compartments protecting critical electronics
-- Modular design for ease of maintenance and upgrades
-- Community-driven iterative development
+~50 km/h · 80 kg rider · 16″ or 18″ wheel · 20s 84 V pack · hollow-bore high-torque motor (C38 / C30 class) · hill-climbing, no suspension.
 
-## Highlights
+---
 
-!!! success "Safety Innovation"
-    Designing an EUC that maintains power stability under all conditions - a critical safety feature that addresses one of the biggest concerns in personal electric vehicles.
-
-!!! info "Open Source Philosophy"
-    Building a community around repairable, modifiable hardware and firmware - challenging the proprietary approach dominating the EUC market.
-
-## Media
-
-<!-- Add images here -->
-<!-- Example:
-![Cyberwheel Image](../images/cyberwheel-photo.jpg)
--->
-
-## Links
-
-- [Full Documentation](https://rubenayla.github.io/cyberwheel/) - Complete project documentation
-- [Project Pitch Video](https://youtu.be/mN5FoosNMC0) - Overview and demonstration
+**Full build docs, requirements, and battery work:** [rubenayla.github.io/cyberwheel](https://rubenayla.github.io/cyberwheel/)

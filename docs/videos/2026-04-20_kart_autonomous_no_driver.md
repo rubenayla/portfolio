@@ -6,7 +6,7 @@ resolution: 1920x1080
 source: ~/ruben-files/videos/kart/01_main/2026-04-20_kart_autonomous_no_driver_trimmed.mov (trimmed from 2026-04-20_kart_autonomous_no_driver_full.mov / original IMG_4485.MOV)
 human_rating: 0.95
 ai_rating: ~
-status: live — /projects/kart/ (replaces autonomous-cones.mp4 as of 2026-05-14)
+status: retired from /projects/kart/ 2026-07-14 — de-duped (same April night run as kart-first-autonomous-drive.mp4, which stays as the Build Journey climax). File retained.
 ---
 
 # Kart autonomous — no one in the seat (Apr 2026)

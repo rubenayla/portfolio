@@ -41,12 +41,6 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 - **Control** — geometric / pure-pursuit controllers. Each controller publishes its picked target point to `/kart/target`; the dashboard HUD subscribes to the same topic, so what the user sees and what the controller commands cannot disagree.
 - **Pre-ROS legacy stack** — earlier 100% Python pipeline ran at ~50 Hz end-to-end on the same hardware. [Walkthrough video](https://youtu.be/wZSFr2eYE4M?si=JckY54OkSBQb4r1M).
 
-<video width="100%" controls muted playsinline>
-  <source src="../../videos/2026-04-20_kart_autonomous_no_driver.mp4" type="video/mp4">
-</video>
-
-*Autonomous mode running outdoors — no one in the seat. April 2026.*
-
 ??? note "Build photos"
 
     <div class="grid cards" markdown>

@@ -8,12 +8,7 @@ An electric unicycle (EUC) built to be trusted and repaired: waterproof, crash-r
 [:material-youtube: Pitch Video](https://youtu.be/mN5FoosNMC0){ .md-button }
 [:fontawesome-brands-github: Source](https://github.com/rubenayla/cyberwheel){ .md-button }
 
-<div class="grid cards" markdown>
-
-- ![CAD design of the wheel — sealed electronics box over a 16-inch wheel](../images/cyberwheel/render.png){ loading=lazy }
-- ![Build progression — CAD, the laser-cut flat pattern, and the running prototype on the bench](../images/cyberwheel/prototype-build.png){ loading=lazy }
-
-</div>
+![Build progression — the CAD design, the laser-cut flat pattern, and the running prototype on the bench](../images/cyberwheel/build-progression.png){ loading=lazy }
 
 ## Why it exists
 

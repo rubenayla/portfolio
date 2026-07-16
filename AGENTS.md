@@ -30,7 +30,7 @@ uv run mkdocs build && python3 -m http.server 8005 --directory site
 Then visit http://localhost:8005/. Kill stale processes with `lsof -ti:8005 | xargs kill -9`.
 
 ## Agent Files
-- `.agents/tasks.md` — task board (TODO / In Progress / Done)
+- `tasks.md` (repo root) — task board (TODO / In Progress / Done). One `tasks.md` per repo, always at the root — there is no `.agents/tasks.md`.
 - `.agents/notes.md` — project notes, decisions, context
 - `.agents/error-log.md` — mistake log
 

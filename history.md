@@ -24,3 +24,14 @@ Commit `45c8794`. GitHub Pages deploy succeeded.
 ### 2026-07-02 — Resolved the deferred items; re-added the photos as a collapsed section
 - **Kept the standalone "Build Journey" nav entry.** User: the inline copy on the kart overview exists only to hook the viewer; the journey is *conceptually a sub-part* and belongs as its own standalone page. So the nav stays as-is — inline hook on the overview, canonical standalone page in the nav.
 - **Re-added the six build photos as a collapsed `??? note "Build photos"` section** (Material `pymdownx.details`), placed where the old `## Gallery` was (between the autonomous-run video and `## Links`). Collapsed by default, no nav entry and no button/link pointing to it — visible to anyone curious, invisible weight otherwise. This resolves the earlier "orphaned images" question: the six `docs/images/kart/` files are in use again, not deleted.
+
+## tasks.md location
+
+### 2026-07-16 — Consolidated tasks.md to the repo root; retired `.agents/tasks.md`
+`.agents/tasks.md` was moved to `tasks.md` at the repo root with `git mv`, so the file's history follows it. `.agents/tasks.md` no longer exists in this repo and must not be recreated — the rule is one `tasks.md` per repo, at the root.
+
+Rationale: tasks are the project's tasks regardless of who does them. Two files named `tasks.md` only produce duplicates and stale entries, because whichever one the current session isn't reading quietly goes out of date.
+
+`AGENTS.md`'s "Agent Files" list now points at the root `tasks.md`.
+
+Stale `.agents/tasks.md` paths in append-only records were deliberately left as written — they were accurate on the date they were logged, and rewriting them would falsify the record. This covers `.agents/error-log.md` and the note in `.agents/notes.md` that references `~/repos/dv-hardware/.agents/tasks.md` (a different repo's board, not this one).

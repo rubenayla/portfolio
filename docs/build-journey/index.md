@@ -1,10 +1,10 @@
 # Build Journey
 
-Posts documenting the build of a competition kart turned autonomous vehicle. Roughly one a week on Wednesdays. New posts append at the bottom — read straight through.
+Posts documenting the build of a competition kart turned autonomous vehicle. Roughly one a week. New posts append at the bottom — read straight through.
 
 [Follow on LinkedIn :fontawesome-brands-linkedin:](https://www.linkedin.com/in/rubenayla/){ .md-button }
 
-**Jump to:** [Intro](#intro) · [Motor](#motor) · [AI Inventory](#inventory-ai) · [Battery](#battery) · [Why 48V](#why-48v) · [Roll hoop](#main-hoop) · [First drive](#first-drive) · [Steering](#steering-actuator) · [Planetary reducer](#planetary-reducer) · [Reducer build](#planetary-build) · [Steering control](#steering-control) · [Dashboard](#dashboard) · [Autonomous drive](#autonomous)
+**Jump to:** [Intro](#intro) · [Motor](#motor) · [AI Inventory](#inventory-ai) · [Battery](#battery) · [Why 48V](#why-48v) · [Roll hoop](#main-hoop) · [First drive](#first-drive) · [Steering](#steering-actuator) · [Planetary reducer](#planetary-reducer) · [Reducer build](#planetary-build) · [Steering control](#steering-control) · [Dashboard](#dashboard) · [Autonomous drive](#autonomous) · [The PCB](#pcb) · [AS5600 magnet](#as5600-magnet)
 
 ---
 
@@ -380,6 +380,40 @@ Software docs: [um-driverless.github.io/kart-docs/software](https://um-driverles
 
 ---
 
+## [The PCB, explained](https://www.linkedin.com/feed/update/urn:li:activity:7488151355111596032/) { #pcb }
+
+*2026-07-29*
+
+Gabriel Fernández Romero explains how our PCB works and why we need it. Thanks to **AISLER** for sponsoring the fabrication.
+
+The main reason the board exists: the ESP32 only reads up to 3.3 V. The Festo pressure sensors output 0–10 V, one volt per bar, so they go through a voltage divider first.
+
+The motor's hall sensors work at 5 V, but a divider there would degrade the signal. Those go through a Schmitt-trigger buffer instead, which also cleans it up.
+
+Accelerating and braking need the opposite conversion. In manual mode the throttle signal comes from the pedal; in autonomous mode we have to generate it. One op-amp gives the 0–5 V throttle signal, and a second one on the same chip drives the proportional brake valve, which wants 0–10 V.
+
+There are also two MOSFETs — one cuts the shutdown line with the safety switches, the other controls the compressor. And the wiring uses push-in connectors, so we can try things out without crimping wires.
+
+Board docs: [um-driverless.github.io/kart-docs](https://um-driverless.github.io/kart-docs/assembly/electronics/kart-medulla/).
+
+---
+
+## [The sensor that couldn't see a magnet](https://www.linkedin.com/feed/update/urn:li:activity:7488488561462145025/) { #as5600-magnet }
+
+*2026-07-30*
+
+Our steering angle sensor reported "no magnet" with the magnet touching the chip. The sensor was not broken, and the magnets are strong.
+
+It started when we wanted to move the ESP32 and its PCB to the rear of the kart, next to the main computer, free from the dirt and bumps. The sensor gives us the angle over I²C, but at that distance the wire is too long for I²C. The AS5600 can supposedly output the angle as a PWM signal instead, but that never worked. While troubleshooting we found that even with the magnet touching the chip — still giving the correct angle over I²C — it reported "no magnet".
+
+The catch is that the AS5600 is designed to work with a *small* diametrically magnetized magnet, not just any one. It measures the field only in the direction perpendicular to the chip, and compares the intensity around a small circle. If the magnet is large, the field across that circle is almost uniform, and the chip sees nothing. At the centre of the chip the field is always zero, but at the edges it should vary strongly: maximum along the North–South direction, zero at 90° to it. From the intensities around that circle it works out the angle.
+
+We would rather have a chip that can take advantage of a strong magnet, so the alignment does not have to be perfect, and one that really does output the angle as PWM. So we have switched to the **MT6701**.
+
+Steering sensor docs: [um-driverless.github.io/kart-docs](https://um-driverless.github.io/kart-docs/assembly/steering/sensor/).
+
+---
+
 <!--
 PLACEHOLDER — upcoming post: "Making it fast" (cone detection → 81 FPS on the Jetson Orin)
 Stage 2 of the perception-speed story. Stage 1 (Deteccion_conos, multithreading + polymorphic
@@ -390,4 +424,4 @@ optimizations: FP16 + TensorRT (.pt → .engine, layer fusion), sky-crop, jetson
 Add as a dated ## section with #anchor and update the "Jump to:" line when it ships.
 -->
 
-*That's the latest post. New ones land roughly every Wednesday — [follow on LinkedIn](https://www.linkedin.com/in/rubenayla/) to catch them as they ship, or check back here.*
+*That's the latest post. New ones land roughly weekly — [follow on LinkedIn](https://www.linkedin.com/in/rubenayla/) to catch them as they ship, or check back here.*

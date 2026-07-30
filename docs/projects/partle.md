@@ -1,5 +1,7 @@
 # Partle - Local Product Search Engine
 
+*Let your AI shop here.*
+
 **May 2025 - Present**
 
 [Visit Partle](https://partle.rubenayla.xyz/){ .md-button .md-button--primary } [API Docs](https://partle.rubenayla.xyz/docs){ .md-button }

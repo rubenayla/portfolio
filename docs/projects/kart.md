@@ -37,7 +37,7 @@ A modular autonomous platform built on a real Tony Kart chassis, designed as an 
 
 Everything from cone perception to steering commands runs in **ROS 2 Humble** on the Orin. The ESP32 is the safety boundary: if the high-level loop dies, the kart fails into a known mechanical-safe state independent of the Linux side.
 
-- **Perception** — YOLOv5 cone detector + stereo depth localiser. 3D cone positions published to ROS 2 in real time on the Jetson's GPU.
+- **Perception** — YOLOv11 cone detector (trained in-house on our own cone dataset) + stereo depth localiser. 3D cone positions published to ROS 2 in real time on the Jetson's GPU.
 - **Control** — geometric / pure-pursuit controllers. Each controller publishes its picked target point to `/kart/target`; the dashboard HUD subscribes to the same topic, so what the user sees and what the controller commands cannot disagree.
 - **Pre-ROS legacy stack** — earlier 100% Python pipeline ran at ~50 Hz end-to-end on the same hardware. [Walkthrough video](https://youtu.be/wZSFr2eYE4M?si=JckY54OkSBQb4r1M).
 

@@ -25,7 +25,7 @@ First-generation Python perception, planning, and control stack. ~50 Hz end-to-e
 
 **Software** — Python (perception, control, ML, threading), C/C++ (embedded, PID, RTOS), Bash, SQL, JavaScript / HTML / CSS.
 
-**Robotics & autonomy** — ROS 2 Humble, Linux real-time, YOLOv5, stereo perception (ZED 2), pure pursuit / geometric controllers, sensor fusion, safety architecture.
+**Robotics & autonomy** — ROS 2 Humble, Linux real-time, YOLOv11, stereo perception (ZED 2), pure pursuit / geometric controllers, sensor fusion, safety architecture.
 
 **Embedded** — ESP32 (FreeRTOS), STM32, PIC18, Nvidia Jetson (Xavier, Orin). UART / CAN / I2C / SPI.
 

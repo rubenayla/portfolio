@@ -19,7 +19,7 @@
 - [ ] Update CV PDFs with latest version
 
 ### SEO & Backlinks
-- [ ] Add Open Graph meta tags for social sharing (`og:title`/`og:description`/`og:image` per page, plus `twitter:card`). Without these, LinkedIn/X build a bare card from the `<title>` alone — no description, no image. Confirmed 2026-08-05 while adding LinkedIn Featured cards: had to set every card's title/description/thumbnail by hand. MkDocs Material supports this via a `meta` plugin or per-page front matter + an `overrides/main.html` block.
+- [x] Add Open Graph meta tags for social sharing — done 2026-08-05 (see Done section).
 - [ ] Add favicon
 - [ ] Optimize meta descriptions per page
 - [ ] Create profiles on high-DR sites linking back (see partle/.agents/posts/profile-bios.md)
@@ -31,5 +31,6 @@
 ## In Progress
 
 ## Done
+- [2026-08-05] **Add OpenGraph + Twitter Card meta tags** — `overrides/main.html` emits `og:`/`twitter:` tags on every page; per-page `description`/`image`/`og_title` come from YAML front matter, with `images/kart/full-kart.jpg` as the default image. Links shared to LinkedIn/X/etc. now render a chosen image and blurb instead of a bare title-only card. Verified live on rubenayla.xyz.
 - [2026-04-06] **Update Partle project page** — rewrote with current stack, real numbers, MCP, SSR, scraping details
 - [2026-04-06] **Update mkdocs.yml site_url** — changed to rubenayla.xyz

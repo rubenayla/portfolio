@@ -19,7 +19,7 @@
 - [ ] Update CV PDFs with latest version
 
 ### SEO & Backlinks
-- [ ] Add Open Graph meta tags for social sharing
+- [ ] Add Open Graph meta tags for social sharing (`og:title`/`og:description`/`og:image` per page, plus `twitter:card`). Without these, LinkedIn/X build a bare card from the `<title>` alone — no description, no image. Confirmed 2026-08-05 while adding LinkedIn Featured cards: had to set every card's title/description/thumbnail by hand. MkDocs Material supports this via a `meta` plugin or per-page front matter + an `overrides/main.html` block.
 - [ ] Add favicon
 - [ ] Optimize meta descriptions per page
 - [ ] Create profiles on high-DR sites linking back (see partle/.agents/posts/profile-bios.md)

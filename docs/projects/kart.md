@@ -1,3 +1,9 @@
+---
+og_title: Driverless Kart
+description: 'A competition kart converted to drive itself: ROS 2 on a Jetson, stereo vision, custom PCBs and an ESP32 safety stop. First 5 autonomous laps on a cone track, April 2026.'
+image: images/kart/full-kart.jpg
+---
+
 # Driverless Kart
 
 :material-star: **Flagship project** · 2020 – present · Outdoor autonomous vehicle testbed built on a real competition kart.

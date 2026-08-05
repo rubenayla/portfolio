@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+<!--
+  Emits OpenGraph + Twitter Card meta tags on every page so links shared to
+  LinkedIn, X, WhatsApp, Slack, etc. render a rich preview with a chosen image,
+  title and description instead of a bare title-only card.
+
+  Per-page overrides come from YAML front matter:
+      ---
+      description: One-line summary shown under the link.
+      image: images/kart/full-kart.jpg   # path relative to the site root
+      ---
+  Pages without front matter fall back to the site description and the default
+  image below.
+-->
+{% block extrahead %}
+  {{ super() }}
+  {%- if page and page.meta and page.meta.og_title -%}
+    {%- set og_title = page.meta.og_title -%}
+  {%- elif page and page.title -%}
+    {%- set og_title = page.title | striptags -%}
+  {%- else -%}
+    {%- set og_title = config.site_name -%}
+  {%- endif -%}
+  {%- set og_desc = page.meta.description if page and page.meta and page.meta.description else config.site_description -%}
+  {%- set og_img_path = page.meta.image if page and page.meta and page.meta.image else "images/kart/full-kart.jpg" -%}
+  {%- set og_img = config.site_url ~ og_img_path -%}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ og_title }}">
+  <meta property="og:description" content="{{ og_desc }}">
+  <meta property="og:image" content="{{ og_img }}">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title }}">
+  <meta name="twitter:description" content="{{ og_desc }}">
+  <meta name="twitter:image" content="{{ og_img }}">
+{% endblock %}

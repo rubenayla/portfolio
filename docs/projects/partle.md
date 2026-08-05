@@ -1,3 +1,8 @@
+---
+description: Partle — a local product search engine. Let your AI shop here.
+image: images/partle/partle-homepage.png
+---
+
 # Partle - Local Product Search Engine
 
 *Let your AI shop here.*

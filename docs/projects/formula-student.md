@@ -1,3 +1,8 @@
+---
+description: Driverless subsystems for Ü Motorsport's UM05 Formula Student car — electronics, steering, braking, sensing, and perception software.
+image: images/formula-student/um05-driverless-pcb.jpg
+---
+
 # Formula Student — Driverless Subsystems
 
 *Ü Motorsport (URJC Formula Student team) · UM05 driverless car*

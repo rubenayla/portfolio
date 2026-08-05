@@ -1,3 +1,8 @@
+---
+description: Cyberwheel — an open-source electric unicycle, hardware and firmware fully open, built to be trusted and repaired.
+image: images/cyberwheel/build-progression.png
+---
+
 # ![Cyberwheel](../images/cyberwheel/logo.svg){ width="380" }
 
 **Open-source electric unicycle · 2022 – present · Hardware + firmware, fully open.**

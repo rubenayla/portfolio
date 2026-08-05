@@ -1,3 +1,7 @@
+---
+description: Robotics engineer working end-to-end on real hardware, from the chassis up. Aerospace Engineering at URJC, looking for robotics roles.
+---
+
 # About
 
 ## Who I am

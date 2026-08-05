@@ -1,3 +1,9 @@
+---
+og_title: Rubén Jiménez Mejías — Robotics Engineer
+description: Robotics engineer building end-to-end on real hardware — CAD, custom PCBs, embedded firmware, and ROS 2 perception and control.
+image: images/kart/full-kart.jpg
+---
+
 # Rubén Jiménez Mejías
 
 **Robotics engineer — end-to-end on real hardware.**

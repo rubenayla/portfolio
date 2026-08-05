@@ -1,3 +1,7 @@
+---
+description: A systematic stock-analysis framework — valuation models run over 500+ stocks.
+---
+
 # Systematic Investment Analysis Framework
 
 **April 2025 - Present**

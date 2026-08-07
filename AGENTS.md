@@ -70,6 +70,7 @@ Then visit http://localhost:8005/. Kill stale processes with `lsof -ti:8005 | xa
   6. Restore `**bold**` / `*italic*` markdown that was flattened for LinkedIn (use `README.md` if it documents intended emphasis).
   7. All images get `{ loading=lazy }` — page weight grows with each post.
   8. Local build only; do not commit/push until user reviews (status promotions are user-only).
+- **Mini-entries (decided 2026-08-07)**: the page also carries small dated entries for build moments too minor for a LinkedIn post (a part arriving, a quick board fix) — the page is the build log, not only a post mirror. Same `## <title> { #<anchor> }` anatomy, date line with **no LinkedIn link** (that's what marks a mini), one photo + a few sentences, inserted chronologically among the posts, anchor added to "Jump to:". Source of truth is the kart-docs build journey (`~/repos/kart-docs/docs/build-journey/index.md`) — mirror minis both ways so the two pages stay equivalent.
 - **Future page split**: when the page gets unwieldy (~30+ posts, or load-time becomes noticeable), split by year — `index.md` becomes the latest, prior years move to `2026.md`, etc. Anchors per post are stable within each page.
 
 ## Video assets — validated-only rule

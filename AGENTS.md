@@ -30,7 +30,13 @@ uv run mkdocs build && python3 -m http.server 8005 --directory site
 Then visit http://localhost:8005/. Kill stale processes with `lsof -ti:8005 | xargs kill -9`.
 
 ## Agent Files
-- `tasks.md` (repo root) — task board (TODO / In Progress / Done). One `tasks.md` per repo, always at the root — there is no `.agents/tasks.md`.
+- `tasks.md` (repo root) — task board (TODO / In Progress / Done), holding only live (open)
+  work. One `tasks.md` per repo, always at the root — there is no `.agents/tasks.md`.
+  **Done items do not stay on the board.** When an item closes, move it — with its date and
+  closing note, verbatim — to `tasks/done-archive.md`, the only other task file, which holds
+  nothing actionable. Exception: a `- [x]` that is a step of a task still open stays on the
+  board; only a whole finished task moves. Same convention as the partle and kart-medulla
+  repos.
 - `.agents/notes.md` — project notes, decisions, context
 - `.agents/error-log.md` — mistake log
 

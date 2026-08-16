@@ -35,3 +35,94 @@ Rationale: tasks are the project's tasks regardless of who does them. Two files 
 `AGENTS.md`'s "Agent Files" list now points at the root `tasks.md`.
 
 Stale `.agents/tasks.md` paths in append-only records were deliberately left as written — they were accurate on the date they were logged, and rewriting them would falsify the record. This covers `.agents/error-log.md` and the note in `.agents/notes.md` that references `~/repos/dv-hardware/.agents/tasks.md` (a different repo's board, not this one).
+
+## The `/build-journey/` URL is wrong, and it is already in a sent job application
+
+### 2026-08-16 — Named for its first occupant, then locked in by outreach
+The build journey lives at `https://rubenayla.xyz/build-journey/`. Every entry on it is about the
+driverless kart, and always has been. Rubén flagged the URL as wrong: he will build many things over
+the years, and a top-level `/build-journey/` claims to cover all of them while holding one project.
+`kart-build-journey/` would at least have been honest; the correct place is under the project,
+`/projects/kart/build-journey/`.
+
+This was not a case of the page's meaning changing after the fact. The page was named for the first
+thing that went into it. When `c2c028d` created it, the mental model was "the page where my weekly
+LinkedIn posts go" — a posting campaign belongs to a person, not a project, so top-level looked
+right. Nobody asked what the page would be called once a second project existed. That question had
+one obvious answer available on day one.
+
+Two later commits made it harder to fix rather than easier. `7ee7531` collapsed the journey into one
+scrolling page and `AGENTS.md` declared the per-post anchors (`/build-journey/#motor`, `#battery`,
+and the rest) stable public URLs — turning the address into a promise. Then `45c8794` inlined the
+whole journey into the kart page with a `pymdownx.snippets` include, because the kart page should
+obviously carry its own build log. At that point the content existed in two rendered places and the
+standalone page was kept alive only to honour the anchor promise. The cheap move was to duplicate
+and leave the address alone.
+
+**The URL is now load-bearing outside this repo.** A grep of `~/vault` found it in outreach:
+
+- `future/applications/Duatic/cover_letter.md:7` — "Build journey: rubenayla.xyz/build-journey".
+  This application was **sent on 2026-08-14** (`future/applications/Duatic/Duatic.md`), so a real
+  recruiter holds this link.
+- `future/applications/AutoStore/cover_letter.md:27` — same link, drafted, not sent as of this date.
+- `future/preferences.md:125` — a standing instruction for how to order artifact links in job
+  applications names `rubenayla.xyz/build-journey` as the second link for any kart-related role, so
+  every future application will reproduce it until that line is updated.
+
+Checked and clean: no published LinkedIn post text under `~/ruben-files/videos/kart/linkedin/posts/`
+links to it (those link to `um-driverless.github.io/kart-docs/`), and the CV one-pager at
+`~/vault/paperwork/cv/project-sheet/onepager.html` points at the kart-docs build journey, not this
+one. Rubén's LinkedIn profile itself was not checked and may carry the link.
+
+**Consequence for any fix:** the address cannot simply disappear. Moving the page requires a
+redirect from `/build-journey/` that a recruiter clicking a months-old PDF still lands on. The site
+is GitHub Pages with a custom domain, so there is no server-side redirect available — it needs the
+`mkdocs-redirects` plugin, which is not currently installed (`mkdocs.yml` has no `plugins:` block
+and `pyproject.toml` lists only `mkdocs-material`). Whether that plugin's generated redirect carries
+the URL fragment through is untested, so `/build-journey/#motor` surviving the move is an open
+question, not an assumption.
+
+**Rule this repeats:** name a file or a URL for the job it does, not for the first thing that goes
+into it. A name chosen for a temporary meaning gets frozen by whatever starts depending on it —
+here, a stability rule written into `AGENTS.md` and then a cover letter mailed to a company.
+
+### 2026-08-16 — Moved it: `/projects/kart/build-journey/`, old URL redirects
+Nested rather than flat. `/projects/kart-build-journey/` was considered and rejected: `/projects/`
+means one project per entry, so a flat `kart-build-journey` would put something that is not a
+project into that list, and the hyphen would be faking the hierarchy that a slash expresses for
+real. Nesting also extends to `/projects/partle/build-journey/` without inventing a convention.
+
+`docs/projects/kart.md` → `docs/projects/kart/index.md` (same URL, `/projects/kart/`), and
+`docs/build-journey/index.md` → `docs/projects/kart/build-journey.md`.
+
+**Asset paths had to become root-absolute.** The journey file is rendered at two URL depths — as its
+own page at `/projects/kart/build-journey/` and snippet-included into `/projects/kart/` — so no
+single `../` count works for both. All `../images/...` became `/images/...`, and the kart page's own
+assets followed for consistency. The videos were already absolute: commit `978d18b` had hit exactly
+this problem once before and fixed only the videos. `mkdocs build` now prints an INFO line per
+absolute link suggesting a relative one; that suggestion is wrong for a site served from the apex
+domain, and the lines are expected noise.
+
+**The old URL is a redirect, not a copy.** Added `mkdocs-redirects` (`uv add`; CI runs `uv sync`, so
+it installs itself) with one entry mapping `build-journey/index.md` to the new page. The plugin's
+generated stub carries the fragment across in JavaScript —
+`location.href = url + (anchor ? "#" + anchor : "")` — so deep links survive. Verified in a headless
+browser rather than assumed: `/build-journey/#motor` ends at `/projects/kart/build-journey/#motor`.
+The `redirect_maps` entry carries a comment saying it is obsolete, why it is kept (the Duatic cover
+letter), and when to delete it.
+
+Checked with all 26 images and 9 videos loaded on `/projects/kart/` (details blocks forced open,
+since the six build photos sit in a collapsed `??? note` and lazy-load) and all 20 on
+`/projects/kart/build-journey/`. No broken assets.
+
+**Outreach fixed at the source.** `~/vault/future/preferences.md` was the file generating the bad
+link — it instructed every application to link `rubenayla.xyz/build-journey`. It now names
+`rubenayla.xyz/projects/kart/` and carries an explicit line never to use the old URL again. The
+unsent AutoStore cover letter had both links as separate bullets; the build-journey bullet was
+dropped rather than repointed, since the journey renders inline at the bottom of the kart page and
+one link covers both. The Duatic letter is already sent and was left alone — it is a record.
+`~/ruben-files/videos/kart/linkedin/AGENTS.md` step 10, which drives the weekly post mirror, now
+points at the new file path.
+
+Still open, on `tasks.md`: the LinkedIn profile may link the old URL and can only be checked by
+logging in, and the redirect itself should be deleted once the sent applications go stale.

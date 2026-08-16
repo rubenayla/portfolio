@@ -26,7 +26,7 @@ Currently finishing my degree and looking for robotics roles in Switzerland.
 
 ## Projects
 
-### [Driverless Kart](projects/kart.md) &nbsp; <small>:material-star: **Flagship project**</small>
+### [Driverless Kart](projects/kart/index.md) &nbsp; <small>:material-star: **Flagship project**</small>
 
 A real Tony Kart converted into a ROS 2 outdoor autonomous testbed. Jetson AGX Orin + ZED 2 stereo + custom ESP32 safety MCU, in-house steering actuation, custom emergency-brake system, custom wheel sensor PCB. First completed 5 laps autonomously on a cone-defined track in April 2026; manual mode fully operational, autonomous mode actively integrated.
 

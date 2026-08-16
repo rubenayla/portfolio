@@ -6,4 +6,10 @@ readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
     "mkdocs-material>=9.5.0",
+    # Keeps retired URLs alive — see the `redirects` block in mkdocs.yml.
+    # Pinned to 1.2.2 on purpose: 1.2.3 added a dependency on `properdocs`, which
+    # prints a paragraph of advertising into every `mkdocs build` telling you to
+    # switch to it. The pin only exists to keep build output clean; if a later
+    # release drops that dependency, unpin freely.
+    "mkdocs-redirects==1.2.2",
 ]

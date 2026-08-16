@@ -33,11 +33,35 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+plugins:
+  # `search` is MkDocs' default plugin. Declaring any `plugins:` key replaces the
+  # default list, so it has to be named explicitly or site search disappears.
+  - search
+  - redirects:
+      # OBSOLETE URL, KEPT ON PURPOSE — do not delete.
+      #
+      # The build journey used to live at the top-level `/build-journey/`. That was
+      # wrong: every entry on it is about the driverless kart, so a site-wide URL
+      # claimed far more than the page held, and there is no room left for the build
+      # log of any other project. It now lives at `/projects/kart/build-journey/`.
+      #
+      # The old address cannot simply disappear. It was printed in the cover letter
+      # sent to Duatic on 2026-08-14, so a recruiter holds that link, and the
+      # per-post anchors (`/build-journey/#motor`, `#battery`, ...) were published as
+      # stable URLs. This redirect keeps both working; mkdocs-redirects copies the
+      # `#anchor` across in JavaScript, so deep links survive too.
+      #
+      # Retire it once the sent applications are old enough not to matter — roughly
+      # 2027, or whenever the Duatic thread is closed. Full story:
+      # `history.md`, 2026-08-16.
+      redirect_maps:
+        'build-journey/index.md': 'projects/kart/build-journey.md'
+
 nav:
   - Home: index.md
   - Driverless Kart:
-      - Overview: projects/kart.md
-      - Build Journey: build-journey/index.md
+      - Overview: projects/kart/index.md
+      - Build Journey: projects/kart/build-journey.md
   - Formula Student: projects/formula-student.md
   - Partle: projects/partle.md
   - Cyberwheel: projects/cyberwheel.md

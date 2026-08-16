@@ -14,7 +14,7 @@ Posts documenting the build of a competition kart turned autonomous vehicle. Rou
 
 We're turning a kart into a driverless racing car.
 
-![Kart arrival](../images/build-journey/2026-04-22-intro/01_kart_arrival_full_edited.jpg){ loading=lazy }
+![Kart arrival](/images/build-journey/2026-04-22-intro/01_kart_arrival_full_edited.jpg){ loading=lazy }
 
 Huge thanks to Henakart. They gave us the whole kart, minus the engine. The rest is on us: the full autonomous stack. I'm on Ü Motorsport Driverless, the URJC student team in Madrid.
 
@@ -42,21 +42,21 @@ Mounting it to a Tony Kart frame was a different job.
 
 The first bracket was PLA, printed on a Bambu Lab. It bolted to the kart's tube frame and held the motor leveled with the rear axle. The bolt holes let us slide the motor to set chain tension. The kart ran on it for months.
 
-![PLA bracket, first version](../images/build-journey/2026-04-29-motor/01_pla_bracket.jpg){ loading=lazy }
+![PLA bracket, first version](/images/build-journey/2026-04-29-motor/01_pla_bracket.jpg){ loading=lazy }
 
 Then it failed in a specific way. The bolt nuts were embedded inside the print, hex pockets buried in the plastic. The nuts were nylon-locking. Tightening the bolts meant fighting the nylon insert's friction, which took enough torque to crack the pocket walls from the inside. The nuts started spinning instead of gripping, the bolts went loose, and we couldn't retighten them because the nuts were buried inside a part we'd have had to destroy to reach them.
 
 Standing in the workshop thinking about the replacement, we asked a better question. Why are we holding the motor horizontally to the sprocket, elevated from the chassis? There's no real reason. We can place the motor on the chassis itself, with a flat welded steel plate. And we can do that ourselves, without waiting for orders.
 
-![Motor mounted to the welded steel plate, with chain](../images/build-journey/2026-04-29-motor/02_motor_with_chain.jpg){ loading=lazy }
+![Motor mounted to the welded steel plate, with chain](/images/build-journey/2026-04-29-motor/02_motor_with_chain.jpg){ loading=lazy }
 
 We considered fancier options. A grid of shifted holes for positive locking. A tensioner bolt in the style of combustion-engine karts. The slot won because it's the simplest approach, and we could always add a tensioner if the slot ever started moving — but it didn't happen.
 
-![Motor controller installed](../images/build-journey/2026-04-29-motor/03_controller_installed.jpg){ loading=lazy }
+![Motor controller installed](/images/build-journey/2026-04-29-motor/03_controller_installed.jpg){ loading=lazy }
 
 The kit also shipped with a chain in a different pitch than the kart's: T8F (8 mm) versus #219 (7.774 mm). The two look almost identical. We standardized on #219 and laser-cut a custom pinion to fit the motor's D-shaped shaft.
 
-![Drivetrain at the rear wheel](../images/build-journey/2026-04-29-motor/04_drivetrain_rear_wheel.jpg){ loading=lazy }
+![Drivetrain at the rear wheel](/images/build-journey/2026-04-29-motor/04_drivetrain_rear_wheel.jpg){ loading=lazy }
 
 Months later, the question "wait, which pitch did we use?" kept coming up. That's why everything goes into the [kart docs](https://github.com/UM-Driverless/kart-docs).
 
@@ -70,15 +70,15 @@ We're using an AI Inventory to design PCBs.
 
 "Do we have any DAC chips in stock?" If answering that means going on a trip to the workshop and spending an hour looking for them between bags, we're doing something wrong.
 
-![The team photographing components on a tripod rig](../images/build-journey/2026-05-04-inventory-ai-workflow/01_team_with_tripod.jpg){ loading=lazy }
+![The team photographing components on a tripod rig](/images/build-journey/2026-05-04-inventory-ai-workflow/01_team_with_tripod.jpg){ loading=lazy }
 
 Nobody wants to do an inventory, so we made it as easy as possible. We set up a tripod over a workshop table, and took pictures of all 270 bags with components.
 
-![Handwritten LM393P component bag](../images/build-journey/2026-05-04-inventory-ai-workflow/04_lm393p_handwritten_bag.jpg){ loading=lazy }
+![Handwritten LM393P component bag](/images/build-journey/2026-05-04-inventory-ai-workflow/04_lm393p_handwritten_bag.jpg){ loading=lazy }
 
 Then, Claude identified each component, looked the manufacturer part number up online for description and datasheet, and saved the data into [Notion](https://www.notion.so/) using their MCP connector. It worked at first try.
 
-![Notion inventory database](../images/build-journey/2026-05-04-inventory-ai-workflow/03_notion_inventory_database.png){ loading=lazy }
+![Notion inventory database](/images/build-journey/2026-05-04-inventory-ai-workflow/03_notion_inventory_database.png){ loading=lazy }
 
 Now we can ask things like:
 
@@ -115,11 +115,11 @@ We made the battery pack ourselves. Why?
 
 To practice. And because we had a bunch of cells lying around from a past project that never used them: 60 Molicel P42A 21700 cells, bought for an electric-vehicle experiment that never happened.
 
-![The finished 13S battery pack](../images/build-journey/2026-05-14-battery/01_pack_assembled_upright.jpg){ loading=lazy }
+![The finished 13S battery pack](/images/build-journey/2026-05-14-battery/01_pack_assembled_upright.jpg){ loading=lazy }
 
 We needed roughly 48V, so 13 cells in series, 46.8V nominal. The motor draws around 2 kW continuous, so the pack could deliver close to five times what the kart actually asks for. It's the first pack we've ever built, so we wanted big safe margins and no power issues for the computer.
 
-![Molicel P42A cells loaded into the holder grid](../images/build-journey/2026-05-14-battery/03_cells_loaded_grid.jpg){ loading=lazy }
+![Molicel P42A cells loaded into the holder grid](/images/build-journey/2026-05-14-battery/03_cells_loaded_grid.jpg){ loading=lazy }
 
 We connected the cells with classic nickel strips. All the current actually flows through the series connections between groups, so the first strip goes in series, then a parallel strip, then another series strip. That's 8 strips per series link sharing the load. At 43 A continuous that's about 5 A per strip. Plenty of margin, and even at the per-cell limit of 45 A each strip stays inside its burst range.
 
@@ -131,15 +131,15 @@ We did the welding with a kWeld. It's funny how it pulses so much current that t
   </video>
 </div>
 
-![Welding nickel strips between the cells](../images/build-journey/2026-05-14-battery/04_welding_in_progress.jpg){ loading=lazy }
+![Welding nickel strips between the cells](/images/build-journey/2026-05-14-battery/04_welding_in_progress.jpg){ loading=lazy }
 
 For monitoring, a JBD (Jiabaida) smart BMS with Bluetooth, so we can watch every cell's voltage and state of charge. The Bluetooth advertises continuously waiting for a phone to pair, which we assumed would slowly drain the pack, but after months sitting idle the voltage barely moved.
 
 The pack lives inside a 3D-printed shell with fireproof expanding foam packed around the cells. We drilled two holes, one for the nozzle and another to vent the displaced air, but didn't have the proper applicator gun. The photo below is the result of using pliers to push the bottle open. It was a mess, but it worked. We learned that waiting to do things "properly" can make you wait forever; sometimes you just do it with what you have. Counterintuitively, aiming for fast progress catches errors earlier and makes the end result higher quality.
 
-![Lowering the pack into its 3D-printed enclosure](../images/build-journey/2026-05-14-battery/06_pack_into_enclosure.jpg){ loading=lazy }
+![Lowering the pack into its 3D-printed enclosure](/images/build-journey/2026-05-14-battery/06_pack_into_enclosure.jpg){ loading=lazy }
 
-![Expanding foam, applied with pliers instead of a proper gun](../images/build-journey/2026-05-14-battery/07_foam_mess.jpg){ loading=lazy }
+![Expanding foam, applied with pliers instead of a proper gun](/images/build-journey/2026-05-14-battery/07_foam_mess.jpg){ loading=lazy }
 
 The whole thing took over 10 hours of work: cells in holders, several layers of nickel strips welded between them, 13 BMS wires soldered and routed cleanly, kapton tape and fish paper so nothing shorts, the printed box, the foam, the cure, plus all the planning and buying the right components. Now I understand why packs cost so much more than just the cells. The amount of time it takes is ridiculous.
 
@@ -161,7 +161,7 @@ What hurts you is the current through nerves and the heart. Voltage is what driv
 
 The resistance of skin drops when you raise the voltage, as it starts breaking down, so doubling the voltage doesn't make it twice as dangerous: it causes roughly 3x the current and the safe exposure time drops an order of magnitude. Around 10 mA your muscles lock around the wire and you can't let go. Around 50 mA your heart fibrillates.
 
-![Touch voltage vs exposure time, from IEC 60479-1. Our 48V pack sits at the edge of the perceptible zone.](../images/build-journey/2026-05-18-why-48v/01_iec_60479_voltage_vs_time.png){ loading=lazy }
+![Touch voltage vs exposure time, from IEC 60479-1. Our 48V pack sits at the edge of the perceptible zone.](/images/build-journey/2026-05-18-why-48v/01_iec_60479_voltage_vs_time.png){ loading=lazy }
 
 There's no clean threshold, but in the 40–60V range the risk rises very fast, from negligible to significant.
 
@@ -179,17 +179,17 @@ In our driverless kart we want to be as close to a Formula Student car as possib
 
 We reused the main hoop from a past season's FS car. Its tube ends were round, but bolts need a flat surface to clamp against. We heated the ends with an oxy-propane torch until red, pressed them flat in a hydraulic press, drilled the bolt holes, and bolted the hoop down. It still needs a support bar across the top to stiffen it. That's the next job.
 
-![The reused FS roll hoop placed on the kart](../images/build-journey/2026-05-21-main-hoop/01_hoop_placed_on_kart_day_one.jpg){ loading=lazy }
+![The reused FS roll hoop placed on the kart](/images/build-journey/2026-05-21-main-hoop/01_hoop_placed_on_kart_day_one.jpg){ loading=lazy }
 
 Thanks to our friends at RB Sistemas for helping with this part.
 
 Next are the wheel bearings. Each wheel has two, one on each side of the rim, with the axle through both. We torqued the axle nut and the wheel didn't spin freely: without a spacer between the inner races, the clamp force could only travel through the bearings themselves. So we cut a tube to length as a spacer and installed it, so the inner races are pressed against the spacer by the nut. Now the bearing only has to take the lateral loads of the kart turning.
 
-![The spacer on the axle, between the inner bearing races](../images/build-journey/2026-05-21-main-hoop/03_bearing_spacer_on_axle.jpg){ loading=lazy }
+![The spacer on the axle, between the inner bearing races](/images/build-journey/2026-05-21-main-hoop/03_bearing_spacer_on_axle.jpg){ loading=lazy }
 
 The kart already had its own accelerator pedal. We needed a sensor on it to read its position, so we took the hall sensor that came with the motor kit and installed it on our pedal with a threaded rod to the chassis. It reads the strength of a magnet and outputs an analog voltage between 0 and 5V.
 
-![The hall throttle sensor mounted on the pedal](../images/build-journey/2026-05-21-main-hoop/04_throttle_sensor_in_situ_on_chassis.jpg){ loading=lazy }
+![The hall throttle sensor mounted on the pedal](/images/build-journey/2026-05-21-main-hoop/04_throttle_sensor_in_situ_on_chassis.jpg){ loading=lazy }
 
 Next: the first manual drive. Everything's going into the [kart docs](https://um-driverless.github.io/kart-docs/) so anyone can build it themselves.
 
@@ -221,7 +221,7 @@ In parallel, we're working on the code. There's a [legacy Python codebase](https
 
 Here we are, with a completely manual kart, and we have to make it turn itself.
 
-![The kart's manual steering column](../images/build-journey/2026-06-10-steering-actuator-search/01_manual_kart_steering.jpg){ loading=lazy }
+![The kart's manual steering column](/images/build-journey/2026-06-10-steering-actuator-search/01_manual_kart_steering.jpg){ loading=lazy }
 
 The idea is simple: put an actuator on the steering column to turn it.
 
@@ -242,7 +242,7 @@ The torque a motor applies comes from the current flowing through it, which also
 
 So if we want a lot of power from a small motor, we make it spin fast and gear it down for the torque we need. That's why we went with a rotary actuator.
 
-![Four ways to gear a fast motor down: gear train, planetary, cycloidal, harmonic drive](../images/build-journey/2026-06-10-steering-actuator-search/02_reducer_mechanisms_diagram.png){ loading=lazy }
+![Four ways to gear a fast motor down: gear train, planetary, cycloidal, harmonic drive](/images/build-journey/2026-06-10-steering-actuator-search/02_reducer_mechanisms_diagram.png){ loading=lazy }
 
 How would you gear it down? Anything from the diagram above, or something else?
 
@@ -406,7 +406,7 @@ Board docs: [um-driverless.github.io/kart-docs](https://um-driverless.github.io/
 
 *2026-07-30*
 
-![How the AS5600 and the MT6701 read a magnet's angle](../images/build-journey/2026-07-30-as5600-magnet/01_as5600_vs_mt6701_diagram.png){ loading=lazy }
+![How the AS5600 and the MT6701 read a magnet's angle](/images/build-journey/2026-07-30-as5600-magnet/01_as5600_vs_mt6701_diagram.png){ loading=lazy }
 
 Our steering angle sensor reported "no magnet" with the magnet touching the chip. The sensor was not broken, and the magnets are strong.
 

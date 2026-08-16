@@ -3,6 +3,16 @@
 
 ## TODO
 
+### Site structure
+- [ ] **Check whether the LinkedIn profile links `rubenayla.xyz/build-journey`** (About section,
+  Featured cards, or the contact/website field) and repoint it to
+  `rubenayla.xyz/projects/kart/`. The move on 2026-08-16 covered every reference on disk; the
+  LinkedIn profile is the one surface that can only be checked by logging in. The old URL still
+  redirects, so this is tidying, not a breakage.
+- [ ] **Retire the `/build-journey/` redirect in `mkdocs.yml`** once the applications that printed
+  that URL are stale — roughly 2027, or whenever the Duatic thread (applied 2026-08-14) is closed.
+  Deleting the `redirects` plugin block is the whole job.
+
 ### Domain Migration
 - [ ] Add CNAME file (`docs/CNAME` with `rubenayla.xyz`) to repo
 - [ ] Configure Cloudflare DNS: CNAME `rubenayla.xyz` -> `rubenayla.github.io`

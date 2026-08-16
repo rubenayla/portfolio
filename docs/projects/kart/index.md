@@ -9,7 +9,7 @@ image: images/kart/full-kart.jpg
 :material-star: **Flagship project** · 2020 – present · Outdoor autonomous vehicle testbed built on a real competition kart.
 
 <video width="100%" controls autoplay muted loop playsinline>
-  <source src="../../videos/kart-hero.mp4" type="video/mp4">
+  <source src="/videos/kart-hero.mp4" type="video/mp4">
 </video>
 
 📚 [Documentation](https://um-driverless.github.io/kart-docs/) · 💻 [kart-brain (perception + control)](https://github.com/UM-Driverless/kart-brain) · [kart-docs (mechanical/electrical/process)](https://github.com/um-driverless/kart-docs) · [driverless (legacy Python stack)](https://github.com/UM-Driverless/driverless)
@@ -51,12 +51,12 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 
     <div class="grid cards" markdown>
 
-    - ![Full kart](../images/kart/full-kart.jpg){ loading=lazy }
-    - ![Chassis arrival](../images/kart/chassis-arrival.jpg){ loading=lazy }
-    - ![ZED 2 camera mount](../images/kart/zed2-mount.jpg){ loading=lazy }
-    - ![Kart Medulla custom PCB](../images/kart/kart-medulla-pcb.png){ loading=lazy }
-    - ![Steering planetary gear motor](../images/kart/steering-planetary.jpg){ loading=lazy }
-    - ![Battery pack assembled](../images/kart/battery-pack.jpg){ loading=lazy }
+    - ![Full kart](/images/kart/full-kart.jpg){ loading=lazy }
+    - ![Chassis arrival](/images/kart/chassis-arrival.jpg){ loading=lazy }
+    - ![ZED 2 camera mount](/images/kart/zed2-mount.jpg){ loading=lazy }
+    - ![Kart Medulla custom PCB](/images/kart/kart-medulla-pcb.png){ loading=lazy }
+    - ![Steering planetary gear motor](/images/kart/steering-planetary.jpg){ loading=lazy }
+    - ![Battery pack assembled](/images/kart/battery-pack.jpg){ loading=lazy }
 
     </div>
 
@@ -69,4 +69,4 @@ Everything from cone perception to steering commands runs in **ROS 2 Humble** on
 
 ---
 
---8<-- "build-journey/index.md"
+--8<-- "projects/kart/build-journey.md"

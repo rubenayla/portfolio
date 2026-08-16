@@ -5,7 +5,7 @@
 Recruiter-facing portfolio built with MkDocs Material — engineering projects, writing, and CV. (Personal notes / opinionated standards live separately at <https://notes.rubenayla.xyz/>, repo `rubenayla/notes`, and are linked only from an unobtrusive footer icon — kept out of the primary recruiter surfaces, not hidden entirely.) Three main sections:
 
 1. **Homepage (`docs/index.md`)** — CV-style landing: who I am, what I work on, and direct links to LinkedIn, GitHub, and the resume PDFs (EN + ES). This is what someone lands on from a job application or LinkedIn click — it should answer "who is this person, and where do I find their CV?" in one screen.
-2. **Project tabs** — one tab per substantial project (driverless kart, Partle, Cyberwheel, investment analysis, …). Each is a self-contained write-up under `docs/projects/` or its own folder (e.g. `docs/build-journey/`).
+2. **Project tabs** — one tab per substantial project (driverless kart, Partle, Cyberwheel, investment analysis, …). Each is a self-contained write-up under `docs/projects/`. A project with more than one page gets a folder — the kart is `docs/projects/kart/` with `index.md` plus `build-journey.md`.
 3. **Writing tab** — essays. Lives under `docs/writing/`. Same status as a project tab: a section of the site, not a sub-page of something else.
 
 Top-level nav tabs are defined in `mkdocs.yml` under `nav:`.

@@ -12,7 +12,7 @@ Robotics engineer working end-to-end on real hardware — from the chassis up. I
 
 **Chief Engineer, Driverless Section — Ü Motorsport / UM Driverless** *(2022 – present)*
 
-Lead engineer on a Formula Student team converting a competition Tony Kart into a fully autonomous outdoor testbed. Migrated the full stack from Python prototype to ROS 2 Humble on Jetson AGX Orin with a custom ESP32 safety MCU. First completed 5 autonomous laps on a cone-defined track in April 2026. Beyond the autonomy stack: designed and machined the steering planetary reducer, built the 18650 battery pack with custom BMS, designed and assembled the "Kart Medulla" custom PCB, and led the team's tooling/docs/branch-protection setup. See **[Driverless Kart](projects/kart.md)** for the full story.
+Lead engineer on a Formula Student team converting a competition Tony Kart into a fully autonomous outdoor testbed. Migrated the full stack from Python prototype to ROS 2 Humble on Jetson AGX Orin with a custom ESP32 safety MCU. First completed 5 autonomous laps on a cone-defined track in April 2026. Beyond the autonomy stack: designed and machined the steering planetary reducer, built the 18650 battery pack with custom BMS, designed and assembled the "Kart Medulla" custom PCB, and led the team's tooling/docs/branch-protection setup. See **[Driverless Kart](projects/kart/index.md)** for the full story.
 
 **Engineer, Autonomous Race Car — Ü Motorsport** *(2020 – 2022)*
 

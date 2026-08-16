@@ -7,7 +7,7 @@ image: images/formula-student/um05-driverless-pcb.jpg
 
 *Ü Motorsport (URJC Formula Student team) · UM05 driverless car*
 
-The driverless subsystems I personally designed and built for **Ü Motorsport** — the electronics, steering, braking, sensing, and perception software. The hardware shown here is the team's **UM05** car (my piece of it, not the whole vehicle); the perception stack is the team's open-source cone detector. This is where my autonomy work started, before I went on to lead the [Driverless Kart](kart.md) testbed.
+The driverless subsystems I personally designed and built for **Ü Motorsport** — the electronics, steering, braking, sensing, and perception software. The hardware shown here is the team's **UM05** car (my piece of it, not the whole vehicle); the perception stack is the team's open-source cone detector. This is where my autonomy work started, before I went on to lead the [Driverless Kart](kart/index.md) testbed.
 
 ## Driverless perception software
 
@@ -31,7 +31,7 @@ The team's open-source cone-detection stack ([`Deteccion_conos`](https://github.
 - **Multithreading** — split the serial capture → detect → control loop so the camera read, detection, and control stages run concurrently instead of blocking each other. Profiling per-section execution time showed the bottleneck shift from the camera (~8 Hz) to detection (~50 Hz).
 - **Polymorphic rewrite** — gave every camera source (recorded image, video, webcam, ZED stereo, simulator) one common interface behind a base class, with a factory that selects the right one from a YAML config. Run modes became *configuration* rather than branching — removing the if/else sprawl and making the code reusable and testable.
 
-*What came next: switching to ROS 2, plus FP16 / TensorRT model optimization and sky-cropping, pushed cone detection to 81 FPS on the kart's Jetson Orin — a story for the [Driverless Kart](kart.md) build journey.*
+*What came next: switching to ROS 2, plus FP16 / TensorRT model optimization and sky-cropping, pushed cone detection to 81 FPS on the kart's Jetson Orin — a story for the [Driverless Kart](kart/index.md) build journey.*
 
 ![The Ü Motorsport team with the car at competition](../images/formula-student/um05-team.jpg){ loading=lazy }
 
@@ -108,4 +108,4 @@ Hands-on build work alongside the electronics: steel parts machined and welded i
 
 ---
 
-*This work led directly into the [Driverless Kart](kart.md), the autonomous-vehicle testbed I went on to lead as Chief Engineer.*
+*This work led directly into the [Driverless Kart](kart/index.md), the autonomous-vehicle testbed I went on to lead as Chief Engineer.*
